@@ -2,7 +2,6 @@ package fastcampus.netflix.movie;
 
 import fastcampus.netflix.movie.response.MovieResponse;
 import fastcampus.netflix.movie.response.PageableMoviesResponse;
-import lombok.Builder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
