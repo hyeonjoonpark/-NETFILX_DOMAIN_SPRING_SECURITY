@@ -1,0 +1,2 @@
+@page = 1
+GET http://localhost:8081/api/v1/movie/client/{{page}}
