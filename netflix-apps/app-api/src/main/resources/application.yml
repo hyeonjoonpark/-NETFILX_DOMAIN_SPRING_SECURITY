@@ -1,2 +1,6 @@
 server:
   port: 8081
+spring:
+  config:
+    import:
+    - 'classpath:adapter-http-property.yml'
