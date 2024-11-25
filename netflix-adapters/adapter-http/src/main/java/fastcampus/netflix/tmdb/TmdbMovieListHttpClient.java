@@ -1,5 +1,7 @@
 package fastcampus.netflix.tmdb;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import fastcampus.netflix.client.TmdbHttpClient;
 import fastcampus.netflix.movie.TmdbMoviePort;
 import fastcampus.netflix.movie.TmdbPageableMovies;
@@ -24,6 +26,12 @@ public class TmdbMovieListHttpClient implements TmdbMoviePort {
         String url = nowPlayingUrl + "?language=ko-KR&page=" + page;
         String request = tmdbHttpClient.request(url, HttpMethod.GET, CollectionUtils.toMultiValueMap(Map.of()), Map.of());
 
+        TmdbMovieNowPlayingResponse response;
+        try {
+            response = new ObjectMapper().readValue(request, TmdbMovieNowPlayingResponse.class);
+        } catch (JsonProcessingException e) {
+            throw new RuntimeException(e);
+        }
 
         return null;
     }
